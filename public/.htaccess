@@ -1,0 +1,9 @@
+RewriteEngine On
+Options +SymLinksIfOwnerMatch
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME}\.txt -f
+RewriteRule ^(.+)$ $1.txt [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]
